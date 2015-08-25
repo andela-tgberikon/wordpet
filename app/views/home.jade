@@ -1,0 +1,37 @@
+div
+md-toolbar
+		.md-toolbar-tools(layout='row', layout-sm='column')
+			div(flex='')
+				span.md-flex Welcome to WordPet
+			div(flex='', layout='row', layout-align='end start')
+				md-button.md-fab(ng-click="login()" ng-if="!authUser" id="login") Login
+				md-button.md-raised(ng-click="logout()" ng-if="authUser" id="login") Logout
+	md-content.md-padding
+		p Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.
+
+		p Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.
+
+div.layout(layout="row" layout-sm="column")
+	div.layout( flex='', layout='row', layout-align='end start')
+		md-input-container(flex='')
+			md-progress-linear(md-mode='indeterminate' ng-if='progress')
+			label What word would you like the definition of....
+			input(ng-model='word' ng-keypress='enterKeyHandler($event)')
+	section(layout='row', layout-sm='column', layout-align='end start')
+		md-button.md-raised.md-primary(ng-click="findWord()") Get Definition of word
+
+	div.layout( flex='', layout='row', layout-align='end start')
+		div(flex='')
+			md-content.md-padding
+				Correct the div of this container, this is where the definition of the word goes into, basically a brief definition of the word, it is clickable which loads the full page containing all the goodies of the word being defined.
+
+md-content.md-padding
+	{{ result }}
+			
+//div(layout='row', layout-sm='column', layout-align='space-around')
+	//md-progress-circular.md-hue-2(md-mode='indeterminate')
+
+md-button.md-raised(ng-click="profile()" ng-if="authUser") My Profile
+
+
+

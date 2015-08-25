@@ -1,0 +1,21 @@
+div
+  md-toolbar
+    .md-toolbar-tools(layout='row', layout-sm='column')
+      div(flex='')
+        span.md-flex(ng-bind="authUser.name")
+        span.md-flex WordPet Search Results
+  
+  div.layout(layout="row" layout-sm="column")
+    div.layout( flex='', layout='row')
+      .md-padding(layout='row', flex='')
+        div(layout='row', flex='')
+          div(layout='column', flex='')
+            md-card {{ results.word }}
+              md-card {{ results.pronunciation }}
+              md-card {{ results.syllables }}
+
+  div.layout(layout="row" layout-sm="column")
+    md-card Definitions
+      .md-padding(layout='row', flex='')
+        div(layout='column', flex='' ng-repeat='results in results.results' class="slide")
+          md-card {{ results.definition }}

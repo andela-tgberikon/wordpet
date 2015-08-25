@@ -1,0 +1,17 @@
+dependencies:
+ pre:
+  - bower install
+ post:
+  - npm install module-deps
+  - npm install gulp -g
+test:
+  override:
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: wordpet
+  staging:
+    branch: develop
+    heroku:
+      appname: wordpet
