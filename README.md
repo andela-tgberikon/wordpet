@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/andela-tgberikon/wordpet.png?label=ready&title=Ready)](https://waffle.io/andela-tgberikon/wordpet)
 WORDPET
 ============
 
