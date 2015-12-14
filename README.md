@@ -5,6 +5,6 @@ Have you searched for so many words over time that you don't remember what they 
 
 In comes wordpet.
 
-its a basic consumption of a http://www.wordsapi.com/ API but added some advanced functions to it.
+its a basic consumption of a [WordsAPI](http://www.wordsapi.com/) API but added some advanced functions to it.
 
 Enjoy!
