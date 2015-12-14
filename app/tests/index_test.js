@@ -1,8 +1,8 @@
 console.log(1212);
-describe('My App Test',function(){
+describe('WordPet Test',function(){
   
     beforeEach(function(){
-      module('MyApp');
+      module('WordPet');
     })
 
     var Settings,
@@ -18,7 +18,7 @@ describe('My App Test',function(){
     //   done();
     // });
 
-    describe('MyApp Test',function(){
+    describe('WordPet Test',function(){
 
         // it('should pass test',function(done){
         //   expect(Refs).toBeDefined();
