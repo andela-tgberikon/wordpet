@@ -1,6 +1,9 @@
 # OSX Stuff
 .DS_Store
 
+# IDE Stuff
+.idea
+
 # Logs
 logs
 *.log
