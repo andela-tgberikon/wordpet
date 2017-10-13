@@ -57,42 +57,53 @@ function run(appdir) {
   });
 
 
-  app.post('/findword', function(req, res) {
-      //Inside here, when the user posts to the backend, the app then proceeds to make an app.get to the words API, possibly a needle.get() because it's way cooler! on success or error, it should send the result to the frontend. 'process worker/node clusters' should be utilised heavily here
+  // app.post('/findword', function(req, res) {
+  //     //Inside here, when the user posts to the backend, the app then proceeds to make an app.get to the words API, possibly a needle.get() because it's way cooler! on success or error, it should send the result to the frontend. 'process worker/node clusters' should be utilised heavily here
+  //
+  //     // This function saves the searched word to firebase, but a check would be performed in the front end to get the word from firebase, if it exists it would pull the word from firebase, if it doesn't it would post to the backend and node would make the API call.
+  //     function saveToFirebase(word) {
+  //       console.log(word);
+  //       firebase = new Firebase(firebaseRef.prod);
+  //       firebase.child('words').push(word);
+  //     };
+  //
+  //     var url = 'https://wordsapiv1.p.mashape.com/words/' + req.body.word;
+  //     var options = {
+  //       headers: {
+  //         'X-Mashape-Key': '2uCGpQErvimshoZje9kdIyxYfZ5np1S8rShjsn96Kwo2GgeASC',
+  //         'Accept': 'application/json'
+  //       }
+  //     };
+  //     needle.get(url, options, function(err, resp) {
+  //       if (resp.statusCode === 200) {
+  //         console.log(resp.statusCode, 'this is statusCode');
+  //         console.log(firebaseRef.prod, 'This is firebaseRef.prod');
+  //         console.log(Firebase);
+  //         saveToFirebase(resp.body);
+  //         res.send(JSON.stringify(resp.body));
+  //       } else {
+  //         console.log('Yeet');
+  //         console.log(resp.statusCode, ' This is the Error code');
+  //
+  //         //send custom error page to user when word is not found on WordsAPI, instead of sending the error body.
+  //         //res.send(resp.body);
+  //       }
+  //     });
+  //   })
+  //   .on('error', function(req, res) {
+  //     console.log('this is a server error of : ', req.body);
+  //   });
+  var serial = 'Q2JN-CJB7-DUQF';
+  app.get('/', function (req, res) {
 
-      // This function saves the searched word to firebase, but a check would be performed in the front end to get the word from firebase, if it exists it would pull the word from firebase, if it doesn't it would post to the backend and node would make the API call.
-      function saveToFirebase(word) {
-        console.log(word);
-        firebase = new Firebase(firebaseRef.prod);
-        firebase.child('words').push(word);
-      };
-
-      var url = 'https://wordsapiv1.p.mashape.com/words/' + req.body.word;
-      var options = {
-        headers: {
-          'X-Mashape-Key': '2uCGpQErvimshoZje9kdIyxYfZ5np1S8rShjsn96Kwo2GgeASC',
-          'Accept': 'application/json'
-        }
-      };
-      needle.get(url, options, function(err, resp) {
-        if (resp.statusCode === 200) {
-          console.log(resp.statusCode, 'this is statusCode');
-          console.log(firebaseRef.prod, 'This is firebaseRef.prod');
-          console.log(Firebase);
-          saveToFirebase(resp.body);
-          res.send(JSON.stringify(resp.body));
-        } else {
-          console.log('Yeet');
-          console.log(resp.statusCode, ' This is the Error code');
-
-          //send custom error page to user when word is not found on WordsAPI, instead of sending the error body.
-          //res.send(resp.body);
-        }
-      });
-    })
-    .on('error', function(req, res) {
-      console.log('this is a server error of : ', req.body);
+    needle.get('https://n197.meraki.com/api/v0/devices/' + serial + '/clients?timespan=43200', function (err, resp) {
+      if(resp){
+        console.log(res, '<<This is the response');
+      }else{
+        console.log(err);
+      }
     });
+  });
 }
 
 run(process.cwd());
